@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Recharge</title>
+</head>
+<body>
+
+    <h2>Mobile Recharge</h2>
+    <button onclick="startRecharge()">Recharge Now</button>
+
+    <script>
+        function mobileNumber() {
+            let mobile = prompt("Enter your mobile number:");
+            return mobile;
+        }
+
+        function confirmMobile(mobile) {
+            return window.confirm(
+                "Mobile Number: " + mobile +
+                "\n\nConfirm Number?"
+            );
+        }
+
+        function confirmPlan(mobile) {
+            let plan = 299;
+
+            let confirmed = window.confirm(
+                "Mobile: " + mobile +
+                "\nPlan: ₹" + plan +
+                "\nValidity: 28 Days" +
+                "\n\nConfirm Recharge?"
+            );
+
+            if (confirmed) {
+                alert("Recharge Successful!");
+            } else {
+                alert("Recharge Cancelled.");
+            }
+        }
+
+        function startRecharge() {
+            let mobile = mobileNumber();
+
+            // Check if the user entered a number
+            if (mobile === null || mobile.trim() === "") {
+                alert("Please enter your mobile number.");
+                return;
+            }
+
+            // Validate 10-digit Indian mobile number
+            if (!/^[6-9]\d{9}$/.test(mobile.trim())) {
+                alert("Please enter a valid 10-digit Indian mobile number.");
+                return;
+            }
+
+            if (confirmMobile(mobile.trim())) {
+                confirmPlan(mobile.trim());
+            } else {
+                alert("Mobile number confirmation cancelled.");
+            }
+        }
+    </script>
+
+</body>
+</html>

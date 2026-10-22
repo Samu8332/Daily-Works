@@ -1,0 +1,29 @@
+<html>
+    <head>
+        </head>
+        <body>
+            
+            <script>
+    function recharge() {
+
+    let mobile = prompt("Enter Mobile Number:");
+
+    let plan = 299;
+
+    let confirm = window.confirm(
+        "Mobile Number: " + mobile +
+        "\nRecharge Plan: ₹" + plan +
+        "\n\nConfirm Recharge?"
+    );
+
+    if (confirm) {
+        alert("Recharge Successful!");
+    } else {
+        alert("Recharge Cancelled!");
+    }
+}
+
+recharge();
+</script>
+</body>
+</html>
